@@ -4,82 +4,92 @@ let shopItemsData = [
     {
         id: 1,
         name: "Casual Shirt",
-        price: 45,
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
+        price: 120,
+        desc: "Camisa casual de color verde claro manga larga.",
         img: "images/img-1.jpg"
     },
     {
         id: 2,
         name: "Office Shirt",
         price: 100,
-        desc: "Lorem ipsum dolor sit amet dolor sit amet, consectetur.",
+        desc: "Camisas de officina en color azul y rosado.",
         img: "images/img-2.jpg"
     },
     {
         id: 3,
         name: "T Shirt",
         price: 12.67,
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
+        desc: "Polera color blanco de cuello redondo.",
         img: "images/img-3.jpg"
     },
     {
         id: 4,
         name: "Mens Suit",
         price: 23.5,
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
+        desc: "Traje color negro elegante para hombres.",
         img: "images/img-4.jpg"
     }, 
     {
-        id: 1,
+        id: 5,
         name: "Casual Shirt",
-        price: 45,
+        price: 156,
         desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
         img: "images/img-1.jpg"
     },
     {
-        id: 2,
+        id: 6,
         name: "Office Shirt",
-        price: 100,
+        price: 20,
         desc: "Lorem ipsum dolor sit amet dolor sit amet, consectetur.",
         img: "images/img-2.jpg"
     },
     {
-        id: 3,
+        id: 7,
         name: "T Shirt",
-        price: 12.67,
+        price: 180,
         desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
         img: "images/img-3.jpg"
     },
     {
-        id: 4,
+        id: 8,
         name: "Mens Suit",
-        price: 23.5,
+        price: 70,
         desc: "Lorem ipsum dolor sit amet, consectetur adipisicing.",
         img: "images/img-4.jpg"
     } 
 ];
 
-    let generateShop = () => {
-        return (shop.innerHTML = shopItemsData.map( (x)=>{
-            return  `
-                <div class="item">
-                    <img width="220" src="${x.img}" alt="">
-                    <div class="details">
-                        <h3>${x.name}</h3>
-                        <p>${x.desc}</p>
-                        <div class="price-quantity">
-                            <h2>$ ${x.price}</h2>
-                            <div class="buttons">
-                                <i class="bi bi-dash-lg"></i>
-                                <div class="quantity">4</div>
-                                <i class="bi bi-plus-lg"></i>
-                            </div>
+let generateShop = () => {
+    return (shop.innerHTML = shopItemsData.map( (x)=>{
+        let { id, name, price, desc, img } = x;
+        return  `
+            <div id="product-id-${id}" class="item">
+                <img width="220" src="${img}" alt="">
+                <div class="details">
+                    <h3>${name}</h3>
+                    <p>${desc}</p>
+                    <div class="price-quantity">
+                        <h2>$ ${price}</h2>
+                        <div class="buttons">
+                            <i onclick="decrement(${id})" class="bi bi-dash-lg"></i>
+                            <div id=${id} class="quantity">4</div>
+                            <i onclick="increment(${id})" class="bi bi-plus-lg"></i>
                         </div>
                     </div>
                 </div>
-            `
-        } )
-        .join(""));
-    };
+            </div>
+        `
+    } )
+    .join(""));
+};
 
 generateShop();
+
+let decrement = (id) => {
+    let selectedItem = id; 
+    console.log(selectedItem);
+};
+let increment = (id) => {
+    console.log(id);
+};
+let update = () => {};
